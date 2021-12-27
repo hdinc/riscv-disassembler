@@ -23,6 +23,10 @@
  * THE SOFTWARE.
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef RISCV_DISASSEMBLER_H
 #define RISCV_DISASSEMBLER_H
 
@@ -495,26 +499,30 @@ typedef enum {
 /* structures */
 
 typedef struct {
-    uint64_t  pc;
-    uint64_t  inst;
-    int32_t   imm;
-    uint16_t  op;
-    uint8_t   codec;
-    uint8_t   rd;
-    uint8_t   rs1;
-    uint8_t   rs2;
-    uint8_t   rs3;
-    uint8_t   rm;
-    uint8_t   pred;
-    uint8_t   succ;
-    uint8_t   aq;
-    uint8_t   rl;
+    uint64_t pc;
+    uint64_t inst;
+    int32_t  imm;
+    uint16_t op;
+    uint8_t  codec;
+    uint8_t  rd;
+    uint8_t  rs1;
+    uint8_t  rs2;
+    uint8_t  rs3;
+    uint8_t  rm;
+    uint8_t  pred;
+    uint8_t  succ;
+    uint8_t  aq;
+    uint8_t  rl;
 } rv_decode;
 
 /* functions */
 
 size_t inst_length(rv_inst inst);
-void inst_fetch(const uint8_t *data, rv_inst *instp, size_t *length);
-void disasm_inst(char *buf, size_t buflen, rv_isa isa, uint64_t pc, rv_inst inst);
+void   inst_fetch(const uint8_t* data, rv_inst* instp, size_t* length);
+void   disasm_inst(char* buf, size_t buflen, rv_isa isa, uint64_t pc, rv_inst inst);
 
+#endif
+
+#ifdef __cplusplus
+}
 #endif
