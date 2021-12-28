@@ -2076,6 +2076,7 @@ static void decode_inst_format(char *buf, size_t buflen, size_t tab, rv_decode *
     const char *fmt;
 
     size_t len = inst_length(dec->inst);
+    /*
     switch (len) {
     case 2:
         snprintf(buf, buflen, INST_FMT_2, dec->inst);
@@ -2090,6 +2091,7 @@ static void decode_inst_format(char *buf, size_t buflen, size_t tab, rv_decode *
         snprintf(buf, buflen, INST_FMT_8, dec->inst);
         break;
     }
+    */
 
     fmt = opcode_data[dec->op].format;
     while (*fmt) {
